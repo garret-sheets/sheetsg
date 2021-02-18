@@ -1,0 +1,53 @@
+  <?php
+     include("config.php");
+     session_start();
+     
+     if($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        $myusername = mysqli_real_escape_string($db,$_POST['username']);
+        $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+         $con = mysqli_connect("db.sice.indiana.edu","i494f20_dbakhshi","my+sql=i494f20_dbakhshi","i494f20_dbakhshi");
+        
+        $sql = "SELECT id FROM admin WHERE username = '$i494f20_dbakhshi' and passcode = '$my+sql=i494f20_dbakhshi";
+        $result = mysqli_query($db,$sql);
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $active = $row['active'];
+        
+        $count = mysqli_num_rows($result);
+          
+        if($count == 1) {
+           session_register("myusername");
+           $_SESSION['user-feedback'] = $user-feedback;
+           
+           header("location: feedback.php");
+        }else {
+           $error = "";
+        }
+     }
+  ?>
+<body style="background-color:#f1f1f1;">
+
+<center><img src="db2.jpg" alt="">
+<p> Please rate below</p>
+<article>
+<div class="star-rating">
+
+    <input class="rb0" id="Ans_1" name="numericRating" type="radio" value="0" checked="checked" />
+    <input class="rb1" id="Ans_2" name="numericRating" type="radio" value="1" />
+    <input class="rb2" id="Ans_3" name="numericRating" type="radio" value="2" />
+    <input class="rb3" id="Ans_4" name="numericRating" type="radio" value="3" />
+    <input class="rb4" id="Ans_5" name="numericRating" type="radio" value="4" />
+
+    <div class="rating"></div>
+    <div class="rating-bg"></div>
+</div>
+</article></center>
+ 
+<center><form id="abc" action="http://cgi.sice.indiana.edu/~dbakhshi/Feedback/rate.html"
+onsubmit="myFunction()">   Enter name: <input type="text"
+name="fname">   <input type="submit" value="Submit"> </form>
+ 
+<script> function myFunction() {
+     alert("The form was submitted"); } </script></center>
+ 
+</body> </html>

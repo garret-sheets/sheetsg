@@ -1,0 +1,150 @@
+
+Last login: Sun Feb  7 21:46:55 2021 from 73.103.162.131
+
+
+MariaDB [i494f20_team80]> show tables;
++--------------------------+
+| Tables_in_i494f20_team80 |
++--------------------------+
+| Blog                     |
+| Coordinators             |
+| Event                    |
+| Survey                   |
+| User                     |
+| UserFeedback             |
++--------------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> SELECT * FROM Event
+
+    -> show tables;
+
+MariaDB [i494f20_team80]> show tables;
++--------------------------+
+| Tables_in_i494f20_team80 |
++--------------------------+
+| Blog                     |
+| Coordinators             |
+| Event                    |
+| Survey                   |
+| User                     |
+| UserFeedback             |
++--------------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> Select * From Event;
++-------------+----------+---------------+-----------+---------+-----------+------------+
+| location    | _time    | event_name    | AvgRating | eventID | CompanyID | _date      |
++-------------+----------+---------------+-----------+---------+-----------+------------+
+| bloomington | 03:00:00 | fishing trip  |         3 | 1123    |         2 | 2021-03-12 |
+| bloomington | 10:00:00 | rock climbing |         4 | 1234    |         1 | 2020-02-05 |
+| bloomington | 11:00:00 | music band    |         5 | 1325    |         3 | 2018-06-06 |
++-------------+----------+---------------+-----------+---------+-----------+------------+
+3 rows in set (0.01 sec)
+
+
+
+MariaDB [i494f20_team80]> show tables;
++--------------------------+
+| Tables_in_i494f20_team80 |
++--------------------------+
+| Blog                     |
+| Coordinators             |
+| Event                    |
+| Survey                   |
+| User                     |
+| UserFeedback             |
++--------------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> Select * From Event;
++-------------+----------+-------------------------+-----------+---------+-----------+------------+
+| location    | _time    | event_name              | AvgRating | eventID | CompanyID | _date      |
++-------------+----------+-------------------------+-----------+---------+-----------+------------+
+| bloomington | 03:00:00 | fishing trip            |         3 | 1123    |         2 | 2021-03-12 |
+| bloomington | 12:00:00 | food festival           |         6 | 1213    |         5 | 2019-05-02 |
+| bloomington | 09:00:00 | Indiana University Tour |         7 | 1214    |         5 | 2021-02-08 |
+| bloomington | 10:00:00 | rock climbing           |         4 | 1234    |         1 | 2020-02-05 |
+| bloomington | 11:00:00 | music band              |         5 | 1325    |         3 | 2018-06-06 |
++-------------+----------+-------------------------+-----------+---------+-----------+------------+
+5 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> Select * From Survey;
++-----------+----------+
+| accountID | username |
++-----------+----------+
+|         1 | jmiiller |
+|         2 | kevchoi  |
+|         3 | gsheets  |
+|         4 | dbakhshi |
++-----------+----------+
+4 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> INSERT INTO Survey(accountID,username)
+    -> Values("5","btammy");
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [i494f20_team80]> Select * From Survey;
++-----------+----------+
+| accountID | username |
++-----------+----------+
+|         1 | jmiiller |
+|         2 | kevchoi  |
+|         3 | gsheets  |
+|         4 | dbakhshi |
+|         5 | btammy   |
++-----------+----------+
+5 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> Select * From User;
++-----------+-------+--------+---------+----------+-----------------+-------------+
+| accountID | _type | fname  | lname   | username | email           | _password   |
++-----------+-------+--------+---------+----------+-----------------+-------------+
+|         1 | user  | Jake   | Miiller | jmiiller | jmiiller@iu.edu | pa55word    |
+|         2 | user  | Kevin  | Choi    | kevchoi  | kevchoi@iu.edu  | password123 |
+|         3 | admin | Garret | Sheets  | gsheets  | gsheets@iu.edu  | Indiana     |
+|         4 | admin | Diana  | Bakhshi | dbakhshi | dbakhshi@iu.edu | Indiana_83  |
++-----------+-------+--------+---------+----------+-----------------+-------------+
+4 rows in set (0.00 sec)
+
+
+MariaDB [i494f20_team80]> Select * From User;
++-----------+-------+--------+---------+----------+--------------------+-------------+
+| accountID | _type | fname  | lname   | username | email              | _password   |
++-----------+-------+--------+---------+----------+--------------------+-------------+
+|         1 | user  | Jake   | Miiller | jmiiller | jmiiller@iu.edu    | pa55word    |
+|         2 | user  | Kevin  | Choi    | kevchoi  | kevchoi@iu.edu     | password123 |
+|         3 | admin | Garret | Sheets  | gsheets  | gsheets@iu.edu     | Indiana     |
+|         4 | admin | Diana  | Bakhshi | dbakhshi | dbakhshi@iu.edu    | Indiana_83  |
+|         5 | user  | Emon   | Maxwell | emonm    | emaxwell@gamil.com | Indiana15   |
++-----------+-------+--------+---------+----------+--------------------+-------------+
+5 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> Select * From UserFeedback;
++-----------+----------+
+| accountID | username |
++-----------+----------+
+|         1 | jmiiller |
+|         2 | kevchoi  |
+|         3 | gsheets  |
+|         4 | dbakshi  |
++-----------+----------+
+4 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> INSERT INTO UserFeedback(accountID,username)
+    -> Values("5","emonmaxwell");
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [i494f20_team80]> Select * From UserFeedback;
++-----------+-------------+
+| accountID | username    |
++-----------+-------------+
+|         1 | jmiiller    |
+|         2 | kevchoi     |
+|         3 | gsheets     |
+|         4 | dbakshi     |
+|         5 | emonmaxwell |
++-----------+-------------+
+5 rows in set (0.00 sec)
+
+MariaDB [i494f20_team80]> 
